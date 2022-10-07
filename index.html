@@ -15,36 +15,33 @@
     </style>
 </head>
 
-<body class="p-20 bg-gray-100" x-data="{
-    search: '',
-    items: ['apple','banana','mango','cherry', 'baba'],
-    get filteredItems() {
-        return this.items.filter (
-            item => item.startsWith(this.search)
-        )
-    }
+<body class="p-20 bg-gray-100" x-data="{headerFixed: false}" 
+@scroll.window="headerFixed = (window.pageYOffset > 100) ? true : false, console.log(headerFixed)">
 
-}">
+<div 
+class="bg-white text-white h-40 px-2 flex items-center border border-gray-200 rounded shadow"
+x-bind:class="headerFixed ? 'fixed top-0 w-full left-0': 'relative' "><img src="./images/light-logo.png" /></div>
 
-<h1 class="text-5xl">Build a search</h1>
-
-<div>
-    <input class="py-2 border border-gray-300 rounded mt-10 px-4" x-model="search">
-</div>
-
-<!-- <div x-text="search"></div> -->
-
-</div>
-
-<ul class="w-52 shadow rounded mt-10 px-4">
-    <template x-for="item in filteredItems" :key="item">
-           <li class="p-2 border-t border-gray-200" x-text="item"></li>
-    </template>
-
-     
-    
-
-</ul>
+<h1 class="text-5xl">Scroll me</h1>
+<h1 class="text-5xl">Scroll me</h1>
+<h1 class="text-5xl">Scroll me</h1>
+<h1 class="text-5xl">Scroll me</h1>
+<h1 class="text-5xl">Scroll me</h1>
+<h1 class="text-5xl">Scroll me</h1>
+<h1 class="text-5xl">Scroll me</h1>
+<h1 class="text-5xl">Scroll me</h1>
+<h1 class="text-5xl">Scroll me</h1>
+<h1 class="text-5xl">Scroll me</h1>
+<h1 class="text-5xl">Scroll me</h1>
+<h1 class="text-5xl">Scroll me</h1>
+<h1 class="text-5xl">Scroll me</h1>
+<h1 class="text-5xl">Scroll me</h1>
+<h1 class="text-5xl">Scroll me</h1>
+<h1 class="text-5xl">Scroll me</h1>
+<h1 class="text-5xl">Scroll me</h1>
+<h1 class="text-5xl">Scroll me</h1>
+<h1 class="text-5xl">Scroll me</h1>
+<h1 class="text-5xl">Scroll me</h1>
 
 
 </body>
