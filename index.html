@@ -7,7 +7,6 @@
     <title>AlpineJs with Tailwind Project </title>
     <link rel="stylesheet" href="./output/tailwind.css" />
 
-
     <script src="//unpkg.com/alpinejs" defer></script>
     <style>
         [x-cloak] { 
@@ -15,66 +14,17 @@
         }
     </style>
 </head>
-<body>
-      
-<div class="flex justify-center">
-    <!-- ------dropdown--------->
-    <div 
-    x-data="{
-        open: false,
-        toggle() {
-            this.open = this.open ? this.close() : true
-        },
-        close () {
-            this.open = false
-        }
-        }"
-    @keydown.escape.prevent.stop="close()"
-    class="relative"
-    >
-        <!-- Button -->
-        
-        <button 
-        x-on:click="toggle()"
-        class="flex items-center gap-2 bg-white px-5 py-2.5 rounded-md shadow" >
-            Options
 
-            <!-- Heroicon: chevron-down -->
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400" viewBox="0 0 20 20" fill="currentColor">
-                <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
-            </svg>
-        </button>
+<body x-data="{open : false}" class="p-20 bg-gray-100 ">
 
-        <!-- Panel -->
-        <div
-            x-show="open"
-            @click.outside="close()"
-            x-cloak
-            class="absolute left-0 mt-2 w-40 rounded-md bg-white shadow-md"
-            >
-            <a href="#" class="flex items-center gap-2 w-full first-of-type:rounded-t-md last-of-type:rounded-b-md px-4 py-2.5 text-left text-sm hover:bg-gray-50 disabled:text-gray-500">
-                New Task
-            </a>
+<button x-on:click="open = !open" class="bg-blue-600 px-5 py-2 text-white rounded">Toggle dropdown </button>
 
-            <a href="#" class="flex items-center gap-2 w-full first-of-type:rounded-t-md last-of-type:rounded-b-md px-4 py-2.5 text-left text-sm hover:bg-gray-50 disabled:text-gray-500">
-                Edit Task
-            </a>
-
-            <a href="#" class="flex items-center gap-2 w-full first-of-type:rounded-t-md last-of-type:rounded-b-md px-4 py-2.5 text-left text-sm hover:bg-gray-50 disabled:text-gray-500">
-                <span class="text-red-600">Delete Task</span>
-            </a>
-        </div>
-    </div>
+<div x-cloak x-show="open" @click.outside="open = false " class="border border-gray-300 p-4 mt-4 shadow-xl">
+    <div>Dropdown Item 1</div>
+    <div>Dropdown Item 2</div>
+    <div>Dropdown Item 3</div>
+    <div>Dropdown Item 4</div>
 </div>
-
-
-
-
-
-
-
-
-
 
 </body>
 </html>
