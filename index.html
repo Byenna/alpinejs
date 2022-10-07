@@ -15,16 +15,38 @@
     </style>
 </head>
 
-<body x-data="{open : false}" class="p-20 bg-gray-100 ">
+<body class="p-20 bg-gray-100" x-data="{
+    search: '',
+    items: ['apple','banana','mango','cherry', 'baba'],
+    get filteredItems() {
+        return this.items.filter (
+            item => item.startsWith(this.search)
+        )
+    }
 
-<button x-on:click="open = !open" class="bg-blue-600 px-5 py-2 text-white rounded">Toggle dropdown </button>
+}">
 
-<div x-cloak x-show="open" @click.outside="open = false " class="border border-gray-300 p-4 mt-4 shadow-xl">
-    <div>Dropdown Item 1</div>
-    <div>Dropdown Item 2</div>
-    <div>Dropdown Item 3</div>
-    <div>Dropdown Item 4</div>
+<h1 class="text-5xl">Build a search</h1>
+
+<div>
+    <input class="py-2 border border-gray-300 rounded mt-10 px-4" x-model="search">
 </div>
+
+<!-- <div x-text="search"></div> -->
+
+</div>
+
+<ul class="w-52 shadow rounded mt-10 px-4">
+    <template x-for="item in filteredItems" :key="item">
+           <li class="p-2 border-t border-gray-200" x-text="item"></li>
+    </template>
+
+     
+    
+
+</ul>
+
 
 </body>
 </html>
+
