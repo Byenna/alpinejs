@@ -15,35 +15,23 @@
     </style>
 </head>
 
-<body class="p-20 bg-gray-100" x-data="{headerFixed: false}" 
-@scroll.window="headerFixed = (window.pageYOffset > 100) ? true : false, console.log(headerFixed)">
+<body 
+x-data="{
+    name: 'Juraia Pinas', 
+    status: 'Negatief😑',
+    }"
+    x-effect="console.log(status)"
+    
+    > 
 
-<div 
-class="bg-white text-white h-40 px-2 flex items-center border border-gray-200 rounded shadow"
-x-bind:class="headerFixed ? 'fixed top-0 w-full left-0': 'relative' "><img src="./images/light-logo.png" /></div>
+<template x-teleport="body">
+<button x-on:click="status = 'Positief😂'" class="p-4 border bg-purple-500 rounded-2xl shadow-xl text-gray-300">Haal status</button>
+</template>
 
-<h1 class="text-5xl">Scroll me</h1>
-<h1 class="text-5xl">Scroll me</h1>
-<h1 class="text-5xl">Scroll me</h1>
-<h1 class="text-5xl">Scroll me</h1>
-<h1 class="text-5xl">Scroll me</h1>
-<h1 class="text-5xl">Scroll me</h1>
-<h1 class="text-5xl">Scroll me</h1>
-<h1 class="text-5xl">Scroll me</h1>
-<h1 class="text-5xl">Scroll me</h1>
-<h1 class="text-5xl">Scroll me</h1>
-<h1 class="text-5xl">Scroll me</h1>
-<h1 class="text-5xl">Scroll me</h1>
-<h1 class="text-5xl">Scroll me</h1>
-<h1 class="text-5xl">Scroll me</h1>
-<h1 class="text-5xl">Scroll me</h1>
-<h1 class="text-5xl">Scroll me</h1>
-<h1 class="text-5xl">Scroll me</h1>
-<h1 class="text-5xl">Scroll me</h1>
-<h1 class="text-5xl">Scroll me</h1>
-<h1 class="text-5xl">Scroll me</h1>
+    <div x-text="name"></div>
+    <div x-text="status"></div>
 
-
+    
 </body>
 </html>
 
